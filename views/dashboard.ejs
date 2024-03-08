@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الواجهة الرئيسية</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script> 
+    
+    <style>
+
+
+        .alexandria {
+        font-family: "Alexandria", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        }
+
+        /*Form fields*/
+    .dataTables_wrapper select,
+    .dataTables_wrapper .dataTables_filter input {
+      color: #4a5568;
+      /*text-white*/
+      padding-left: 1rem;
+      /*pl-4*/
+      padding-right: 1rem;
+      /*pl-4*/
+      padding-top: .5rem;
+      /*pl-2*/
+      padding-bottom: .5rem;
+      /*pl-2*/
+      line-height: 1.25;
+      /*leading-tight*/
+      border-width: 2px;
+      /*border-2*/
+      border-radius: .25rem;
+      border-color: #edf2f7;
+      /*border-gray-200*/
+      background-color: #edf2f7;
+      /*bg-gray-200*/
+    }
+
+    /*Row Hover*/
+    table.dataTable.hover tbody tr:hover,
+    table.dataTable.display tbody tr:hover {
+      background-color: #ebf4ff;
+      /*bg-indigo-100*/
+    }
+
+    /*Pagination Buttons*/
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Pagination Buttons - Current selected */
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      color: #fff !important;
+      /*text-white*/
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+      /*shadow*/
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      background: #077c72 !important;
+      /*bg-indigo-500*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Pagination Buttons - Hover */
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      color: #fff !important;
+      /*text-white*/
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
+      /*shadow*/
+      font-weight: 700;
+      /*font-bold*/
+      border-radius: .25rem;
+      /*rounded*/
+      background: #077c72 !important;
+      /*bg-indigo-500*/
+      border: 1px solid transparent;
+      /*border border-transparent*/
+    }
+
+    /*Add padding to bottom border */
+    table.dataTable.no-footer {
+      border-bottom: 1px solid #e2e8f0;
+      /*border-b-1 border-gray-300*/
+      margin-top: 0.75em;
+      margin-bottom: 0.75em;
+    }
+
+    /*Change colour of responsive icon*/
+    table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
+    table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
+      background-color: #077c72 !important;
+      /*bg-indigo-500*/
+    }
+  
+
+    </style></head>
+
+<body class="h-screen bg-cover bg-center " style="background-image: url('/images/coverl.jpg')" dir="rtl">
+
+    <div class="flex h-screen">
+
+        <!-- Sidebar -->
+        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-1/5 flex flex-col">
+
+            <!-- Sidebar header -->
+            <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 flex justify-between items-center">
+
+            </div>
+
+            <!-- Sidebar content -->
+            <div class="flex-grow overflow-y-auto text-center">
+                <!-- Sidebar items -->
+                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
+                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستخدمين</a>
+                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن السلع</a>
+                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة الممولين</a>
+                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستفيدين</a>
+            </div>
+
+        </div>
+
+        <!-- Main content -->
+        <div class="flex-grow p-8">
+            <h1 class="text-3xl alexandria text-white font-semibold mb-4">الواجهة الرئيسية</h1>
+
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Card 1 -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد القفف</h2>
+                    <p class="alexandria text-[#F5F5F5]">عدد القفف: 100</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">المستفيدون</h2>
+                    <p class="alexandria text-[#F5F5F5]">عدد المستفيدين: 50</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">كمية السلع</h2>
+                    <p class="alexandria text-[#F5F5F5]">1000 </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد الممولين</h2>
+                    <p class="alexandria text-[#F5F5F5]">عدد المولين: 12</p>
+                </div>
+            </div>
+
+            <div class="container mx-auto mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Table -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl p-6 rounded-lg shadow">
+                    <h2 class="alexandria text-lg text-white font-semibold mb-4">اخر المستفيدين</h2>
+                    <table class="w-full">
+                    <thead>
+                        <tr>
+                        <th class="px-4 py-2 text-white alexandria">الاسم</th>
+                        <th class="px-4 py-2 text-white alexandria"> العنوان</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td class="border px-4 py-2 text-white alexandria">عمر أحمد </td>
+                        <td class="border px-4 py-2 text-white alexandria">سحقي أحمد</td>
+                        </tr>
+                        <tr>
+                        <td class="border px-4 py-2 text-white alexandria">أحمد علي</td>
+                        <td class="border px-4 py-2 text-white alexandria">حي الطمبور</td>
+                        </tr>
+                        <tr>
+                            <td class="border px-4 py-2 text-white alexandria"> مصطفى سلطان</td>
+                            <td class="border px-4 py-2 text-white alexandria">حي الطمبور</td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+                
+                <!-- Chart -->
+                <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl p-6 rounded-lg shadow">
+                    <h2 class="text-lg font-semibold mb-4 text-white alexandria">الرسم البياني</h2>
+                    <canvas id="myChart"></canvas>
+                </div>
+                </div>
+            </div>
+            </div>
+        
+            <!-- Include Chart.js -->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+            <script>
+            // Chart data
+            const labels = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'];
+            const data = {
+                labels: labels,
+                datasets: [{
+                label: 'المبيعات',
+                data: [65, 59, 80, 81, 56, 55],
+                fill: false,
+                borderColor: 'white',
+                tension: 0.1
+                }]
+            };
+        
+            // Chart options
+            const options = {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            };
+        
+            // Create chart
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: options
+            });
+            </script>
+    
+            </div>
+        </div>
+
+        
+        
+
+</body>
+
+</html>
