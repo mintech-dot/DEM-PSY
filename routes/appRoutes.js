@@ -1,41 +1,27 @@
 var express = require('express');
-var router = express.Router();
 const authController = require('../controllers/authController');
-const session = require('express-session');
-const connection = require('../connection/dbConnection');
+const usersController = require('../controllers/usersController');
+
+const bodyParser = require('body-parser');
+const app = express();
+
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// Define your routes after configuring body-parser
 
 
-/* GET login page. */
-router.get('/', function(req, res, next) {
-    res.render('index');
-  });
+app.post('/auth', authController.auth);
+app.get('/' , authController.home) ;
+app.get('/dashboard' , authController.dashboard) ;
 
-router.post('/auth', function(req, res) {
-	// Capture the input fields
-	let username = req.body.username;
-	let password = req.body.password;
-	// Ensure the input fields exists and are not empty
-	if (username && password) {
-		// Execute SQL query that'll select the account from the database based on the specified username and password
-		connection.query('SELECT * FROM account WHERE username = ? AND password = ?', [username, password], function(error, results, fields) {
-			// If there is an issue with the query, output the error
-			if (error) throw error;
-			// If the account exists
-			if (results.length > 0) {
-				// Authenticate the user
-				req.session.loggedin = true;
-				req.session.username = username;
-				// Redirect to home page
-				res.redirect('/');
-			} else {
-				res.send('Incorrect Username and/or Password!');
-			}			
-			res.end();
-		});
-	} 
-});
+
+app.get('/users' , usersController.users)
+app.post('/adduser' , usersController.add);
 
 
 
 
-module.exports = router;
+
+module.exports = app;

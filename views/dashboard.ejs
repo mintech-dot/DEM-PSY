@@ -1,118 +1,5 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<%- include('partials/dash-header'); -%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الواجهة الرئيسية</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap" rel="stylesheet">
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script> 
-    
-    <style>
-
-
-        .alexandria {
-        font-family: "Alexandria", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 400;
-        font-style: normal;
-        }
-
-        /*Form fields*/
-    .dataTables_wrapper select,
-    .dataTables_wrapper .dataTables_filter input {
-      color: #4a5568;
-      /*text-white*/
-      padding-left: 1rem;
-      /*pl-4*/
-      padding-right: 1rem;
-      /*pl-4*/
-      padding-top: .5rem;
-      /*pl-2*/
-      padding-bottom: .5rem;
-      /*pl-2*/
-      line-height: 1.25;
-      /*leading-tight*/
-      border-width: 2px;
-      /*border-2*/
-      border-radius: .25rem;
-      border-color: #edf2f7;
-      /*border-gray-200*/
-      background-color: #edf2f7;
-      /*bg-gray-200*/
-    }
-
-    /*Row Hover*/
-    table.dataTable.hover tbody tr:hover,
-    table.dataTable.display tbody tr:hover {
-      background-color: #ebf4ff;
-      /*bg-indigo-100*/
-    }
-
-    /*Pagination Buttons*/
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
-      font-weight: 700;
-      /*font-bold*/
-      border-radius: .25rem;
-      /*rounded*/
-      border: 1px solid transparent;
-      /*border border-transparent*/
-    }
-
-    /*Pagination Buttons - Current selected */
-    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-      color: #fff !important;
-      /*text-white*/
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-      /*shadow*/
-      font-weight: 700;
-      /*font-bold*/
-      border-radius: .25rem;
-      /*rounded*/
-      background: #077c72 !important;
-      /*bg-indigo-500*/
-      border: 1px solid transparent;
-      /*border border-transparent*/
-    }
-
-    /*Pagination Buttons - Hover */
-    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-      color: #fff !important;
-      /*text-white*/
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-      /*shadow*/
-      font-weight: 700;
-      /*font-bold*/
-      border-radius: .25rem;
-      /*rounded*/
-      background: #077c72 !important;
-      /*bg-indigo-500*/
-      border: 1px solid transparent;
-      /*border border-transparent*/
-    }
-
-    /*Add padding to bottom border */
-    table.dataTable.no-footer {
-      border-bottom: 1px solid #e2e8f0;
-      /*border-b-1 border-gray-300*/
-      margin-top: 0.75em;
-      margin-bottom: 0.75em;
-    }
-
-    /*Change colour of responsive icon*/
-    table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
-    table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-      background-color: #077c72 !important;
-      /*bg-indigo-500*/
-    }
-  
-
-    </style></head>
 
 <body class="h-screen bg-cover bg-center " style="background-image: url('/images/coverl.jpg')" dir="rtl">
 
@@ -130,7 +17,7 @@
             <div class="flex-grow overflow-y-auto text-center">
                 <!-- Sidebar items -->
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
-                <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستخدمين</a>
+                <a href="/users" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستخدمين</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن السلع</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة الممولين</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستفيدين</a>
@@ -244,9 +131,6 @@
             </div>
         </div>
 
-        
+<%- include('partials/dash-footer'); -%>
         
 
-</body>
-
-</html>
