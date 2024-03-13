@@ -24,7 +24,7 @@ cancelButton.addEventListener('click', () => {
 $(document).ready(function() {
 $('#example').DataTable({
     // Add any customization options here
-    
+
     dom: 'Bfrtip',
      buttons: [
 
@@ -67,6 +67,31 @@ $('#example').DataTable({
 
 
 });
+var dataTable = $('#example').DataTable();
+
+$('#example').on('click', '.editButton', function () {
+    var data = dataTable.row($(this).parents('tr')).data();
+    // Capture data from the clicked row
+
+    // Send data as JSON in the request payload
+    // Replace '/edit' with your endpoint
+    $.ajax({
+        url: '/edit',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            id: data[0],
+            name: data[1]
+        }),
+        success: function(response) {
+            // Handle success response
+        },
+        error: function(xhr, status, error) {
+            // Handle error
+        }
+    });
+});
+
 });
 
 
