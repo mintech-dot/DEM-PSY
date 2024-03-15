@@ -65,7 +65,7 @@ app.post('/users/:id/edit', (req, res) => {
 });
 
 app.get('/users/:id/delete', usersController.deleteUser);
-app.get('/users/:id/', usersController.getUser , usersController.getAllUsers);
+app.get('/users/:id/', usersController.getUser);
 
 
 
