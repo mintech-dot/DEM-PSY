@@ -31,8 +31,9 @@
 
             <div class="py-12 alexandria">
                 
+              <!--Inserting users form-->
+
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm" id="addDiv" <% if (addDiv) { %>style="display: none;"<% } %>>
-                  
                   <form class="space-y-6" id="adduser">
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -71,13 +72,12 @@
                         </div>
                       </div>
                     </div>
-
                     <button type="submit" 
                     class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">حفظ</button>
                   </form>
-              
-                  
                 </div>
+
+                 <!--Updating users form-->
 
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm " id="editDiv">
                   <% getusers.forEach(getuser => { %>
@@ -125,10 +125,7 @@
                     class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">تعديل</button>
                   </form>
                   <% }); %>
-
-                  
                 </div>
-
             </div>
                
                 <!-- Table -->
@@ -161,17 +158,12 @@
                         </tbody>
                     </table>
                 </div>
-                
-                
-                
-            
-                
             </div>
         </div>
 
         
         
-
+        <!--Data Table -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
