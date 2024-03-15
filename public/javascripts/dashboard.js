@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 $(document).ready(function() {
     $('#example').DataTable({
         // Add any customization options here
@@ -55,7 +48,7 @@ $(document).ready(function() {
     
     });
     
-    
+    // add new user
     document.getElementById('adduser').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
     
@@ -90,6 +83,7 @@ $(document).ready(function() {
         
     });
     
+    // edit user 
     document.getElementById('edituser').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
     

@@ -16,56 +16,11 @@ app.post('/auth', authController.auth);
 app.get('/' , authController.home) ;
 app.get('/dashboard' , authController.dashboard) ;
 
-
-app.get('/users' , usersController.getAllUsers )
-app.post('/adduser', (req, res) => {
-
-    var name = req.body.name ;
-    var address = req.body.address ;
-    var phone = req.body.phone ;
-    var type = req.body.type ;
-
-    const query = 'INSERT INTO users (name, address , phone , type) VALUES (?, ? , ? , ?)';
-    connection.query(query, [name, address , phone , type], (err, results) => {
-      if (err) {
-        console.error('Error inserting data into MySQL:', err);
-        res.status(500).json({ message: 'Error inserting data into MySQL' });
-        return;
-    }
-    console.log('Data inserted into MySQL');
-    res.json({ message: 'Data inserted successfully', redirect: '/users' }); // Redirect URL
-
-})
-
-});
-
-app.post('/users/:id/edit', (req, res) => {
-
-    var id = req.body.id ;
-    var name = req.body.name ;
-    var address = req.body.address ;
-    var phone = req.body.phone ;
-    var type = req.body.type ;
-
-    console.log(name , id , type);
-    const query = 'UPDATE users SET name = ?, address = ? , phone = ?, type = ? WHERE id = ?';
-    connection.query(query, [name, address , phone , type , id], (err, results) => {
-      if (err) {
-        console.error('Error inserting data into MySQL:', err);
-        res.status(500).json({ message: 'Error inserting data into MySQL' });
-        return;
-    }
-    console.log('MySQL data updated ');
-    res.redirect('/users');
-
-    })
-    
-
-
-});
-
-app.get('/users/:id/delete', usersController.deleteUser);
+app.get('/users' , usersController.getAllUsers );
+app.post('/adduser', usersController.createUser);
+app.post('/users/:id/edit', usersController.updateUser);
 app.get('/users/:id/', usersController.getUser);
+app.get('/users/:id/delete', usersController.deleteUser);
 
 
 

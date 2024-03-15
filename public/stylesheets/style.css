@@ -1,5 +1,5 @@
 
-.alexandria {
+      .alexandria {
         font-family: "Alexandria", sans-serif;
         font-optical-sizing: auto;
         font-weight: 400;
@@ -8,7 +8,7 @@
 
         
        
-        .dataTables_wrapper .dataTables_filter input {
+      .dataTables_wrapper .dataTables_filter input {
       color: #000000;
       /*text-white*/
       padding-left: 1rem;
@@ -25,9 +25,7 @@
       /*border-2*/
       border-radius: .25rem;
       border-color: #16a34a;
-      /*border-gray-200*/
       background-color: #ffffff;
-      /*bg-gray-200*/
     }
 /*Form fields*/
 .dataTables_wrapper select,
@@ -48,16 +46,13 @@
       /*border-2*/
       border-radius: .25rem;
       border-color: #edf2f7;
-      /*border-gray-200*/
       background-color: #edf2f7;
-      /*bg-gray-200*/
     }
 
     /*Row Hover*/
     table.dataTable.hover tbody tr:hover,
     table.dataTable.display tbody tr:hover {
       background-color: #ebf4ff;
-      /*bg-indigo-100*/
     }
 
     /*Pagination Buttons*/
@@ -81,24 +76,21 @@
       border-radius: .25rem;
       /*rounded*/
       background: #16a34a !important;
-      /*bg-indigo-500*/
       border: 1px solid transparent;
-      /*border border-transparent*/
       color: #e2e8f0;
     }
 
     .dataTables_wrapper .dataTables_paginate .paginate_button.disabled, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
-	cursor: default;
-	color: #fff !important;
-	border: 1px solid transparent;
-	background: transparent;
-	box-shadow: none;
-  font-weight: 300;
+    cursor: default;
+    color: #fff !important;
+    border: 1px solid transparent;
+    background: transparent;
+    box-shadow: none;
+    font-weight: 300;
 
-}
+    }
     /*Pagination Buttons - Hover */
     .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-      /*text-white*/
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
       /*shadow*/
       font-weight: 700;
@@ -106,9 +98,7 @@
       border-radius: .25rem;
       /*rounded*/
       background: #16a34a !important;
-      /*bg-indigo-500*/
       border: 1px solid transparent;
-      /*border border-transparent*/
       color: #ffffff;
     }
 

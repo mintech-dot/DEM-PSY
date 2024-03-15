@@ -8,10 +8,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//db connection
 const connection = require('../connection/dbConnection');
-
-
-
 
 function getAllUsers(req , res){
     connection.query('SELECT * FROM users', (err, users) => {
@@ -21,7 +19,7 @@ function getAllUsers(req , res){
     });
 };
 
-function createUser(res, req){
+const createUser = async (req, res) => {
 
     var name = req.body.name ;
     var address = req.body.address ;
@@ -37,10 +35,11 @@ function createUser(res, req){
     }
     console.log('Data inserted into MySQL');
     res.json({ message: 'Data inserted successfully', redirect: '/users' }); // Redirect URL
+
 })
 };
 
-function updateUser(req, res, next) {	
+const updateUser = async (req, res) => {
 
     var id = req.body.id ;
     var name = req.body.name ;
