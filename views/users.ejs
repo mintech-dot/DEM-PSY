@@ -18,7 +18,7 @@
             <div class="flex-grow overflow-y-auto text-center ">
                 <!-- Sidebar items -->
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
-                <a href="#" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المستخدمين</a>
+                <a href="/users" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المستخدمين</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن السلع</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة الممولين</a>
                 <a href="#" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة المستفيدين</a>
@@ -32,6 +32,7 @@
             <div class="py-12 alexandria">
                 
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm" id="addDiv" <% if (addDiv) { %>style="display: none;"<% } %>>
+                  
                   <form class="space-y-6" id="adduser">
                     <div class="flex flex-wrap -mx-3 mb-6">
                       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -148,11 +149,11 @@
                         <tbody>
                           <% users.forEach(user => { %>
                             <tr >
-                                <td contenteditable="true" class="border px-4 py-2 hidden"> <%= user.id %> </td>
-                                <td contenteditable="true" class="border px-4 py-2"> <%= user.name %> </td>
-                                <td contenteditable="true" class="border px-4 py-2"><%= user.address %> </td>
-                                <td contenteditable="true" class="border px-4 py-2"><%= user.phone %></td>
-                                <td contenteditable="true" class="border px-4 py-2"><%= user.type %></td>
+                                <td class="border px-4 py-2 hidden"> <%= user.id %> </td>
+                                <td class="border px-4 py-2"> <%= user.name %> </td>
+                                <td class="border px-4 py-2"><%= user.address %> </td>
+                                <td class="border px-4 py-2"><%= user.phone %></td>
+                                <td class="border px-4 py-2"><%= user.type %></td>
                                 <td><a href="/users/<%= user.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
                                 <td><a href="/users/<%= user.id %>/delete"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
                             </tr>

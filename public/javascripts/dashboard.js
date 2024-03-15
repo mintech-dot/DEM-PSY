@@ -15,7 +15,7 @@ $(document).ready(function() {
     {
         extend: 'excelHtml5',
         exportOptions: {
-            columns: [ 0, 1, 2,3,4, 5 ] ,
+            columns: [ 1, 2,3,4] ,
     
         } ,
         className: 'buttons-excel' ,
@@ -24,7 +24,7 @@ $(document).ready(function() {
     {
         extend: 'pdfHtml5',
         exportOptions: {
-            columns: [ 0, 1, 2,3,4, 5 ]
+            columns: [ 1, 2,3,4 ]
         }
     },
     'colvis'
@@ -118,7 +118,6 @@ $(document).ready(function() {
             body: JSON.stringify(formData)
         })
         .then(response => response.json())
-        .then(response => response(window.location.reload()))
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
         

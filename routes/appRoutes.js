@@ -56,9 +56,10 @@ app.post('/users/:id/edit', (req, res) => {
         return;
     }
     console.log('MySQL data updated ');
-    res.json({ message: 'Data updated successfully', redirect: '/users' }); // Redirect URL
+    res.redirect('/users');
 
     })
+    
 
 
 });
