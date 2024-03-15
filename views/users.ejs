@@ -10,12 +10,9 @@
     <div class="flex h-screen">
 
         <!-- Sidebar -->
-        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-1/5 container  flex h-screen flex-col">
+        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-64 fixed inset-y-0 right-0 flex flex-col justify-between">
 
-            <!-- Sidebar header -->
-            <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 flex justify-between items-center">
-
-            </div>
+            
 
             <!-- Sidebar content -->
             <div class="flex-grow overflow-y-auto text-center ">
@@ -30,24 +27,116 @@
         </div>
 
         <!-- Main content -->
-        <div class="flex-grow p-8 ">
+        <div class="mr-72 flex-1 overflow-y-auto pb-14 pl-8">
 
-            <div class="py-6 alexandria">
+            <div class="py-12 alexandria">
                 
-                 <!-- Button to open create dialog -->
-                <button id="createButton"
-                    class=" bg-green-600 hover:bg-green-500 text-white font-light py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                    إضافة
-                </button>
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm" id="addDiv" <% if (addDiv) { %>style="display: none;"<% } %>>
+                  <form class="space-y-6" id="adduser">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الاسم و اللقب
+                        </label>
+                        <input id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                          العنوان
+                        </label>
+                        <input id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            رقم الهاتف
+                          </label>
+                          <input id="phone" name="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-state">
+                            الصفة
+                          </label>
+                          <div class="relative">
+                            <select id="type" name="type" required class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                              <option>محتاج</option>
+                              <option>متبرع</option>
+                              <option>منظم</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="submit" 
+                    class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">حفظ</button>
+                  </form>
+              
+                  
+                </div>
+
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm " id="editDiv">
+                  <% getusers.forEach(getuser => { %>
+                  <form class="space-y-6" method="post" id="edituser">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الاسم و اللقب
+                        </label>
+                        <input value=" <%= getuser.id %> " id="eid"  required class="hidden appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        <input value=" <%= getuser.name %> " id="ename" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                          العنوان
+                        </label>
+                        <input value=" <%= getuser.address %> " id="eaddress" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            رقم الهاتف
+                          </label>
+                          <input value=" <%= getuser.phone %> " id="ephone" name="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-state">
+                            الصفة
+                          </label>
+                          <div class="relative">
+                            <select id="etype" name="type" required class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                              <option>محتاج</option>
+                              <option>متبرع</option>
+                              <option>منظم</option>
+                            </select>
+                            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <button type="submit" 
+                    class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">تعديل</button>
+                  </form>
+                  <% }); %>
+
+                  
+                </div>
 
             </div>
                
                 <!-- Table -->
-                <div class="flex flex-col justify-center border-width: 1px alexandria  backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl px-6   lg:px-8">
+                <div id="table"  class="flex flex-col justify-center border-width: 1px alexandria  backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl px-6 lg:px-8" <% if (table) { %>style="display: none;"<% } %>>
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <table id="example" class="table-auto w-full ">
                         <thead>
                             <tr>
+                                <th class="px-4 text-white py-2 hidden">الاسم و اللقب</th>
                                 <th class="px-4 text-white py-2">الاسم و اللقب</th>
                                 <th class="px-4 text-white py-2">العنوان</th>
                                 <th class="px-4 text-white py-2">رقم الهاتف</th>
@@ -57,14 +146,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                          <% users.forEach(user => { %>
                             <tr >
-                                <td contenteditable="true" class="border px-4 py-2"> <input type="checkbox" />    &nbsp; مصطفى عمر</td>
-                                <td contenteditable="true" class="border px-4 py-2">حمادي كرومة</td>
-                                <td contenteditable="true" class="border px-4 py-2">0675000008</td>
-                                <td contenteditable="true" class="border px-4 py-2">To insert specific multiple values from one table into one column in MySQL using Laravel, you can use a combination of Laravel's query builder and raw SQL queries. Here's a step-by-step guide</td>
-                                <td><button class="editButton">تعديل</button></td> 
-                                <td><a href="/dashboard/حذف/"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
+                                <td contenteditable="true" class="border px-4 py-2 hidden"> <%= user.id %> </td>
+                                <td contenteditable="true" class="border px-4 py-2"> <%= user.name %> </td>
+                                <td contenteditable="true" class="border px-4 py-2"><%= user.address %> </td>
+                                <td contenteditable="true" class="border px-4 py-2"><%= user.phone %></td>
+                                <td contenteditable="true" class="border px-4 py-2"><%= user.type %></td>
+                                <td><a href="/users/<%= user.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
+                                <td><a href="/users/<%= user.id %>/delete"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
                             </tr>
+                            <% }); %>
                         </tbody>
                     </table>
                 </div>
@@ -72,61 +164,7 @@
                 
                 
             
-                <!-- Create Dialog -->
-                <div id="createDialog"
-                    class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 z-50 hidden">
-                    <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 p-6 rounded-lg shadow-lg">
-                      <img src="/images/reject.png" class="h-6 absolute top-0 left-0 " id="cancelButton">
-      
-                        <form class="w-full max-w-lg"  id="adduser">
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
-                                  الاسم و اللقب
-                                </label>
-                                <input id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
-                              </div>
-                              <div class="w-full md:w-1/2 px-3">
-                                <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
-                                  العنوان
-                                </label>
-                                <input id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
-                              </div>
-                            </div>
-                            <div class="flex flex-wrap -mx-3 mb-6">
-                                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
-                                    رقم الهاتف
-                                  </label>
-                                  <input id="phone" name="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
-                                </div>
-                                <div class="w-full md:w-1/2 px-3">
-                                  <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-state">
-                                    الصفة
-                                  </label>
-                                  <div class="relative">
-                                    <select id="type" name="type" required class="block appearance-none w-full bg-gray-200 border border-gray-200 text-black py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                                      <option>محتاج</option>
-                                      <option>متبرع</option>
-                                      <option>منظم</option>
-                                    </select>
-                                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-
-                            <button type="submit" 
-                            class="bg-green-600 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">حفظ</button>
-                    
-                        
-                      </form>
-
-                      
-                              
-                    </div>
-                </div>
+                
             </div>
         </div>
 
@@ -145,41 +183,7 @@
         <script src="/javascripts/dashboard.js"></script> 
 
 
-        <script>
-          document.getElementById('adduser').addEventListener('submit', function(event) {
-              event.preventDefault(); // Prevent form submission
-  
-              // Get form input values
-              const name = document.getElementById('name').value;
-              const address = document.getElementById('address').value;
-              const phone = document.getElementById('phone').value;
-              const type = document.getElementById('type').value;
-
-              // Create an object with form data
-              const formData = {
-                  name: name,
-                  address: address,
-                  phone: phone,
-                  type:type,
-              };
-  
-              // Send data to Express server
-              fetch('/adduser', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify(formData)
-              })
-              .then(response => response.json())
-              .then(data => console.log(data))
-              .catch(error => console.error('Error:', error));
-          });
-
-
-          
-      </script>
+       
 
 
 <%- include('partials/dash-footer'); -%>
-
