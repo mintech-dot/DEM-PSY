@@ -1,7 +1,7 @@
 var express = require('express');
 const authController = require('../controllers/authController');
 const usersController = require('../controllers/usersController');
-const connection = require('../connection/dbConnection');
+const productController = require('../controllers/productController');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -22,6 +22,6 @@ app.post('/users/:id/edit', usersController.updateUser);
 app.get('/users/:id/', usersController.getUser);
 app.get('/users/:id/delete', usersController.deleteUser);
 
-
+app.get('/products' , productController.getAllproducts)
 
 module.exports = app;
