@@ -7,7 +7,7 @@ var appRoutes = require('./routes/appRoutes');
 const bodyParser = require('body-parser');
 var app = express();
 
-// Middleware
+// Middleware 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
