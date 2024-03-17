@@ -22,6 +22,5 @@ app.post('/users/:id/edit', usersController.updateUser);
 app.get('/users/:id/', usersController.getUser);
 app.get('/users/:id/delete', usersController.deleteUser);
 
-app.get('/products' , productController.getAllproducts)
 
 module.exports = app;
