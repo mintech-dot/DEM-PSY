@@ -22,12 +22,16 @@ function getAllMalade(req , res){
 const createMalade = async (req, res) => {
 
     var name = req.body.name ;
-    var address = req.body.address ;
+    var maladie = req.body.maladie ;
     var phone = req.body.phone ;
-    var type = req.body.type ;
+    var place = req.body.place ;
+    var famille = req.body.famille ;
+    var date = req.body.date ;
+    var doctor = req.body.doctor ;
+    var notes = req.body.notes ;
 
-    const query = 'INSERT INTO malade (name, address , phone , type) VALUES (?, ? , ? , ?)';
-    connection.query(query, [name, address , phone , type], (err, results) => {
+    const query = 'INSERT INTO malade (name, maladie, phone, place, famille, date, doctor, notes) VALUES (?, ? , ? , ? , ?, ? , ? , ?)';
+    connection.query(query, [name, maladie , phone , place, famille , date , doctor , notes], (err, results) => {
       if (err) {
         console.error('Error inserting data into MySQL:', err);
         res.status(500).json({ message: 'Error inserting data into MySQL' });
@@ -43,13 +47,17 @@ const updateMalade = async (req, res) => {
 
     var id = req.body.id ;
     var name = req.body.name ;
-    var address = req.body.address ;
+    var maladie = req.body.maladie ;
     var phone = req.body.phone ;
-    var type = req.body.type ;
+    var place = req.body.place ;
+    var famille = req.body.famille ;
+    var date = req.body.date ;
+    var doctor = req.body.doctor ;
+    var notes = req.body.notes ;
 
 
-    const query = 'UPDATE malade SET name = ?, address = ? , phone = ?, type = ? WHERE id = ?';
-    connection.query(query, [name, address , phone , type , id], (err, results) => {
+    const query = 'UPDATE malade SET name = ?, maladie = ? , phone = ?, place = ? , famille = ?, date = ?, doctor = ?, notes = ? WHERE id = ?';
+    connection.query(query, [name, maladie , phone , place, famille , date , doctor , notes , id], (err, results) => {
       if (err) {
         console.error('Error inserting data into MySQL:', err);
         res.status(500).json({ message: 'Error inserting data into MySQL' });

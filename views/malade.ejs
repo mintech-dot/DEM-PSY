@@ -18,7 +18,7 @@
             <div class="flex-grow overflow-y-auto text-center ">
                 <!-- Sidebar items -->
                 <a href="/dashboard" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
-                <a href="/malades" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المرضى</a>
+                <a href="/malade" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المرضى</a>
                 <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن الأدوية</a>
                 <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
 
@@ -46,7 +46,7 @@
                         <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                           مرض مزمن
                         </label>
-                        <input id="maldie" name="maldie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        <input id="maladie" name="maladie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                       </div>
                     </div>
 
@@ -61,7 +61,7 @@
                         <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                            مكان السكن
                         </label>
-                        <input id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        <input id="place" name="place" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                       </div>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
@@ -101,19 +101,20 @@
 
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm " id="editDiv" <% if (editDiv) { %>style="display: none;"<% } %>>
                   <% getmalades.forEach(getmalade => { %>
-                    <form class="space-y-6" id="addmalade">
+                    <form class="space-y-6" id="editmalade">
                       <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                             الاسم و اللقب
                           </label>
-                          <input value="<%= getmalade.name %> " id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                          <input value="<%= getmalade.id %> " id="eid" required class="hidden appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                          <input value="<%= getmalade.name %> " id="ename" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                             مرض مزمن
                           </label>
-                          <input value="<%= getmalade.maldie %> " id="maldie" name="maldie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                          <input value="<%= getmalade.maladie %> " id="emaladie" name="maladie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                         </div>
                       </div>
   
@@ -122,13 +123,13 @@
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                             الحالة العائلية
                           </label>
-                          <input value="<%= getmalade.famille %> " id="famille" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                          <input value="<%= getmalade.famille %> " id="efamille" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label  class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                              مكان السكن
                           </label>
-                          <input value="<%= getmalade.address %> " id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                          <input value="<%= getmalade.place %> " id="eplace" name="place" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                         </div>
                       </div>
                       <div class="flex flex-wrap -mx-3 mb-6">
@@ -136,13 +137,13 @@
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                              رقم الهاتف 
                           </label>
-                          <input value="<%= getmalade.phone %>" id="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                          <input value="<%= getmalade.phone %>" id="ephone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                             تاريخ الدخول
                           </label>
-                          <input value="<%= getmalade.date %>"  id="date" name="date" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                          <input value="<%= getmalade.date %>"  id="edate" name="date" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                         </div>
                       </div>
                       <div class="flex flex-wrap -mx-3 mb-6">
@@ -150,13 +151,13 @@
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                             الطبيب المعالج
                           </label>
-                          <input value="<%= getmalade.doctor %>"  id="doctor" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                          <input value="<%= getmalade.doctor %>"  id="edoctor" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
                         </div>
                         <div class="w-full md:w-1/2 px-3">
                           <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
                             ملاحظات
                           </label>
-                          <input value="<%= getmalade.notes %>"   id="notes" name="notes" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                          <input value="<%= getmalade.notes %>"   id="enotes" name="notes" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
                         </div>
                       </div>
                       <button type="submit" 
@@ -190,11 +191,11 @@
                             <tr >
                                 <td class="border px-4 py-2 hidden"> <%= malade.id %> </td>
                                 <td class="border px-4 py-2"> <%= malade.name %> </td>
-                                <td class="border px-4 py-2"><%= malade.address %> </td>
+                                <td class="border px-4 py-2"><%= malade.place %> </td>
                                 <td class="border px-4 py-2"><%= malade.phone %></td>
                                 <td class="border px-4 py-2"><%= malade.type %></td>
                                 <td class="border px-4 py-2"> <%= malade.name %> </td>
-                                <td class="border px-4 py-2"><%= malade.address %> </td>
+                                <td class="border px-4 py-2"><%= malade.place %> </td>
                                 <td class="border px-4 py-2"><%= malade.phone %></td>
                                 <td class="border px-4 py-2"><%= malade.type %></td>
                                 <td><a href="/malades/<%= malade.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
@@ -222,6 +223,99 @@
         <script src="/javascripts/dashboard.js"></script> 
 
 
+        <script>
+
+           // add new user
+    document.getElementById('addmalade').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form input values
+        const name = document.getElementById('name').value;
+        const maladie = document.getElementById('maladie').value;
+        const famille = document.getElementById('famille').value;
+        const place = document.getElementById('place').value;
+        const phone = document.getElementById('phone').value;
+        const date = document.getElementById('date').value;
+        const doctor = document.getElementById('doctor').value;
+        const notes = document.getElementById('notes').value;
+        
+    
+        // Create an object with form data
+        const formData = {
+            name: name,
+            maladie: maladie,
+            famille: famille,
+            place:place,
+            phone:phone,
+            date:date,
+            doctor:doctor,
+            notes:notes
+        };
+    
+        // Send data to Express server
+        fetch('/addmalade', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(response => response(window.location.reload()))
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        
+            
+        
+    });
+    
+    // edit user 
+    document.getElementById('editmalade').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form input values
+        const id = document.getElementById('eid').value;
+        const name = document.getElementById('ename').value;
+        const maladie = document.getElementById('emaladie').value;
+        const famille = document.getElementById('efamille').value;
+        const place = document.getElementById('eplace').value;
+        const phone = document.getElementById('ephone').value;
+        const date = document.getElementById('edate').value;
+        const doctor = document.getElementById('edoctor').value;
+        const notes = document.getElementById('enotes').value;
+        
+    
+        // Create an object with form data
+        const formData = {
+            id: id ,
+            name: name,
+            maladie: maladie,
+            famille: famille,
+            place:place,
+            phone:phone,
+            date:date,
+            doctor:doctor,
+            notes:notes
+
+        };
+        console.log(formData);
+        // Send data to Express server
+        fetch('/malades/:id/edit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        
+            
+        
+    });
+
+        </script>
        
 
 
