@@ -24,7 +24,7 @@
       border-width: 2px;
       /*border-2*/
       border-radius: .25rem;
-      border-color: #16a34a;
+      border-color: #0774b5;
       background-color: #ffffff;
     }
 /*Form fields*/
@@ -75,7 +75,7 @@
       /*font-bold*/
       border-radius: .25rem;
       /*rounded*/
-      background: #16a34a !important;
+      background: #0774b5 !important;
       border: 1px solid transparent;
       color: #e2e8f0;
     }
@@ -97,7 +97,7 @@
       /*font-bold*/
       border-radius: .25rem;
       /*rounded*/
-      background: #16a34a !important;
+      background: #0774b5 !important;
       border: 1px solid transparent;
       color: #ffffff;
     }
@@ -113,7 +113,7 @@
     /*Change colour of responsive icon*/
     table.dataTable.dtr-inline.collapsed>tbody>tr>td:first-child:before,
     table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
-      background-color: #16a34a !important;
+      background-color: #0774b5 !important;
       /*bg-indigo-500*/
     }
 
@@ -125,26 +125,26 @@
     }
 
     .dt-buttons .buttons-excel  {
-      background-color: #16a34a; /* Change the color to your desired color */
+      background-color: #0774b5; /* Change the color to your desired color */
       color: white; /* Change the text color to your desired color */
-      background-image : #16a34a ;
+      background-image : #0774b5 ;
       font-weight: 300;
 
     }
 
     .dt-buttons .buttons-pdf {
-      background-color: #16a34a; /* Change the color to your desired color */
+      background-color: #0774b5; /* Change the color to your desired color */
       color: white; /* Change the text color to your desired color */
-      background-image : #16a34a ;
+      background-image : #0774b5 ;
       font-weight: 300;
     }
 
     .dt-button.buttons-excel:hover {
-      background-color: #22c55e !important; /* Change the hover background color */
+      background-color: #4bb3f0 !important; /* Change the hover background color */
     }
 
     .dt-button.buttons-pdf:hover {
-      background-color: #22c55e !important; /* Change the hover background color */
+      background-color: #4bb3f0 !important; /* Change the hover background color */
     }
 
     

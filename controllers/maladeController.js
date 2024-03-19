@@ -11,22 +11,22 @@ app.use(bodyParser.json());
 //db connection
 const connection = require('../connection/dbConnection');
 
-function getAllUsers(req , res){
-    connection.query('SELECT * FROM users', (err, users) => {
+function getAllMalade(req , res){
+    connection.query('SELECT * FROM malade', (err, malades) => {
         if (err) throw err;
-        const getusers = []
-        res.render('users', { users: users , getusers , table : false , addDiv : false , editDiv : true});
+        const getmalades = [] ;
+        res.render('malade', { malades: malades , getmalades , table : false , addDiv : false , editDiv : true});
     });
 };
 
-const createUser = async (req, res) => {
+const createMalade = async (req, res) => {
 
     var name = req.body.name ;
     var address = req.body.address ;
     var phone = req.body.phone ;
     var type = req.body.type ;
 
-    const query = 'INSERT INTO users (name, address , phone , type) VALUES (?, ? , ? , ?)';
+    const query = 'INSERT INTO malade (name, address , phone , type) VALUES (?, ? , ? , ?)';
     connection.query(query, [name, address , phone , type], (err, results) => {
       if (err) {
         console.error('Error inserting data into MySQL:', err);
@@ -34,12 +34,12 @@ const createUser = async (req, res) => {
         return;
     }
     console.log('Data inserted into MySQL');
-    res.json({ message: 'Data inserted successfully', redirect: '/users' }); // Redirect URL
+    res.json({ message: 'Data inserted successfully', redirect: '/malade' }); // Redirect URL
 
 })
 };
 
-const updateUser = async (req, res) => {
+const updateMalade = async (req, res) => {
 
     var id = req.body.id ;
     var name = req.body.name ;
@@ -48,7 +48,7 @@ const updateUser = async (req, res) => {
     var type = req.body.type ;
 
 
-    const query = 'UPDATE users SET name = ?, address = ? , phone = ?, type = ? WHERE id = ?';
+    const query = 'UPDATE malade SET name = ?, address = ? , phone = ?, type = ? WHERE id = ?';
     connection.query(query, [name, address , phone , type , id], (err, results) => {
       if (err) {
         console.error('Error inserting data into MySQL:', err);
@@ -56,36 +56,38 @@ const updateUser = async (req, res) => {
         return;
     }
     console.log('MySQL data updated ');
-    res.json({ message: 'Data updated successfully', redirect: '/users' }); // Redirect URL
+    res.json({ message: 'Data updated successfully', redirect: '/malade' }); // Redirect URL
 
     })
 };
 
-function deleteUser(req, res, next) {	
+function deleteMalade(req, res, next) {	
 
     const { id } = req.params;
-    connection.query('DELETE FROM users WHERE id = ?', [id], (err, result) => {
+    connection.query('DELETE FROM malade WHERE id = ?', [id], (err, result) => {
         if (err) throw err;
-        res.redirect('/users');
+        res.redirect('/malade');
     });
 
 };
 
 
-function getUser(req , res){
+function getMalade(req , res){
     const { id } = req.params;
-
-    connection.query('SELECT *  FROM users WHERE id =  ?', [id],(err, getusers) => {
+    
+    connection.query('SELECT *  FROM malade WHERE id =  ?', [id],(err, getmalades) => {
         if (err) throw err;
-        const users = [];
-        res.render('users', { getusers: getusers , table : true , addDiv : true , editDiv : false , users : users});
+        connection.query('SELECT * FROM malade', (err, malades) => {
+            if (err) throw err;
+        res.render('malade', { getmalades: getmalades , table : false , addDiv : true , editDiv : false , malades : malades});
     });
+});
 };
 
 module.exports = {
-    getAllUsers ,
-    createUser,
-    updateUser ,
-    deleteUser,
-    getUser
+    getAllMalade ,
+    createMalade,
+    updateMalade ,
+    deleteMalade,
+    getMalade
 } ;

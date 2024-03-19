@@ -1,0 +1,228 @@
+<%- include('partials/dash-header'); -%>
+
+
+    
+
+    </style></head>
+
+<body class="h-screen bg-[#0062a4] bg-center "  dir="rtl">
+
+    <div class="flex h-screen">
+
+        <!-- Sidebar -->
+        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-64 fixed inset-y-0 right-0 flex flex-col justify-between">
+
+            
+
+            <!-- Sidebar content -->
+            <div class="flex-grow overflow-y-auto text-center ">
+                <!-- Sidebar items -->
+                <a href="/dashboard" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
+                <a href="/malades" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المرضى</a>
+                <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن الأدوية</a>
+                <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
+
+            </div>
+
+        </div>
+
+        <!-- Main content -->
+        <div class="mr-72 flex-1 overflow-y-auto pb-14 pl-8">
+
+            <div class="py-12 alexandria">
+                
+              <!--Inserting malades form-->
+
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm" id="addDiv" <% if (addDiv) { %>style="display: none;"<% } %>>
+                  <form class="space-y-6" id="addmalade">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الاسم و اللقب
+                        </label>
+                        <input id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                          مرض مزمن
+                        </label>
+                        <input id="maldie" name="maldie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الحالة العائلية
+                        </label>
+                        <input id="famille" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                           مكان السكن
+                        </label>
+                        <input id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                           رقم الهاتف 
+                        </label>
+                        <input id="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                          تاريخ الدخول
+                        </label>
+                        <input id="date" name="date" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الطبيب المعالج
+                        </label>
+                        <input id="doctor" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                          ملاحظات
+                        </label>
+                        <input id="notes" name="notes" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                      </div>
+                    </div>
+                    <button type="submit" 
+                    class="bg-[#005582] hover:bg-[#0774b5] text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">حفظ</button>
+                  </form>
+                </div>
+
+                 <!--Updating malades form-->
+
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm " id="editDiv" <% if (editDiv) { %>style="display: none;"<% } %>>
+                  <% getmalades.forEach(getmalade => { %>
+                    <form class="space-y-6" id="addmalade">
+                      <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            الاسم و اللقب
+                          </label>
+                          <input value="<%= getmalade.name %> " id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                            مرض مزمن
+                          </label>
+                          <input value="<%= getmalade.maldie %> " id="maldie" name="maldie" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        </div>
+                      </div>
+  
+                      <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            الحالة العائلية
+                          </label>
+                          <input value="<%= getmalade.famille %> " id="famille" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label  class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                             مكان السكن
+                          </label>
+                          <input value="<%= getmalade.address %> " id="address" name="address" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        </div>
+                      </div>
+                      <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                             رقم الهاتف 
+                          </label>
+                          <input value="<%= getmalade.phone %>" id="phone" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                            تاريخ الدخول
+                          </label>
+                          <input value="<%= getmalade.date %>"  id="date" name="date" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        </div>
+                      </div>
+                      <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            الطبيب المعالج
+                          </label>
+                          <input value="<%= getmalade.doctor %>"  id="doctor" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text" placeholder="">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                            ملاحظات
+                          </label>
+                          <input value="<%= getmalade.notes %>"   id="notes" name="notes" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text" placeholder="">
+                        </div>
+                      </div>
+                      <button type="submit" 
+                      class="bg-[#005582] hover:bg-[#0774b5] text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">تعديل</button>
+                    </form>
+                  <% }); %>
+                </div>
+            </div>
+               
+                <!-- Table -->
+                <div id="table"  class="flex flex-col justify-center border-width: 1px alexandria  backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl px-6 lg:px-8" <% if (table) { %>style="display: none;"<% } %>>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <table id="example" class="table-auto w-full ">
+                        <thead>
+                            <tr>
+                                <th class="px-4 text-white py-2 hidden">الاسم و اللقب</th>
+                                <th class="px-4 text-white py-2"> مرض مزمن </th>
+                                <th class="px-4 text-white py-2">الحالة العائلية</th>
+                                <th class="px-4 text-white py-2">مكان السكن</th>
+                                <th class="px-4 text-white py-2">رقم الهاتف</th>
+                                <th class="px-4 text-white py-2">  تاريخ الدخول</th>
+                                <th class="px-4 text-white py-2">الطبيب المعالج</th>
+                                <th class="px-4 text-white py-2">ملاحظات </th>
+                                <th class="px-4 text-white py-2">الصفة</th>
+                                <th class="px-4 text-white py-2">تعديل</th>
+                                <th class="px-4 text-white py-2">حذف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% malades.forEach(malade => { %>
+                            <tr >
+                                <td class="border px-4 py-2 hidden"> <%= malade.id %> </td>
+                                <td class="border px-4 py-2"> <%= malade.name %> </td>
+                                <td class="border px-4 py-2"><%= malade.address %> </td>
+                                <td class="border px-4 py-2"><%= malade.phone %></td>
+                                <td class="border px-4 py-2"><%= malade.type %></td>
+                                <td class="border px-4 py-2"> <%= malade.name %> </td>
+                                <td class="border px-4 py-2"><%= malade.address %> </td>
+                                <td class="border px-4 py-2"><%= malade.phone %></td>
+                                <td class="border px-4 py-2"><%= malade.type %></td>
+                                <td><a href="/malades/<%= malade.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
+                                <td><a href="/malades/<%= malade.id %>/delete"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <!--Data Table -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript"> </script>
+        <script src="/javascripts/dashboard.js"></script> 
+
+
+       
+
+
+<%- include('partials/dash-footer'); -%>

@@ -57,6 +57,7 @@ $(document).ready(function() {
         const address = document.getElementById('address').value;
         const phone = document.getElementById('phone').value;
         const type = document.getElementById('type').value;
+        
     
         // Create an object with form data
         const formData = {
