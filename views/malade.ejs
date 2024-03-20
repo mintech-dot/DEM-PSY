@@ -308,6 +308,7 @@
             body: JSON.stringify(formData)
         })
         .then(response => response.json())
+        .then(response => response(window.location.reload()))
         .then(data => console.log(data))
         .catch(error => console.error('Error:', error));
         
