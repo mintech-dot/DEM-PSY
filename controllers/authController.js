@@ -8,7 +8,7 @@ function auth(req, res, next) {
     var password = req.body.password;
 
     if (username && password) {
-        connection.query('SELECT * FROM account WHERE username = ?', [username], function(error, data) {
+        connection.query('SELECT * FROM account WHERE username = ? AND password = ? ', [username , password], function(error, data) {
             if (error) {
                 console.error('Error executing query:', error);
                 return res.status(500).send('Internal Server Error');

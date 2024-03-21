@@ -3,6 +3,7 @@ const authController = require('../controllers/authController');
 const maladeController = require('../controllers/maladeController');
 const medicamentController = require('../controllers/medicamentController');
 const productController = require('../controllers/productController');
+const programController = require('../controllers/programController');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -35,4 +36,10 @@ app.post('/addproduct', productController.createProduct);
 app.post('/products/:id/edit', productController.updateProduct);
 app.get('/products/:id/', productController.getProduct);
 app.get('/products/:id/delete', productController.deleteProduct);
+
+app.get('/program' , programController.getAllProgram );
+app.post('/addprogram', programController.createProgram);
+app.post('/programs/:id/edit', programController.updateProgram);
+app.get('/programs/:id/', programController.getProgram);
+app.get('/programs/:id/delete', programController.deleteProgram);
 module.exports = app;
