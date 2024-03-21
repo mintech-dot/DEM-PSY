@@ -15,18 +15,13 @@ function auth(req, res, next) {
             }
 
             if (data.length > 0) {
-                var found = false;
-                data.forEach(function(account) {
-                    if (account.password === password) {
-                        found = true;
-                    }
-                });
-
-                if (found = true) {
+                
                     return res.redirect("/dashboard");
                 } else {
-                    res.redirect('/');                }
-            } 
+                    res.redirect('/');        
+                            
+                }
+            
         });
     } 
 };
