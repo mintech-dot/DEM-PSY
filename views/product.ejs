@@ -1,0 +1,248 @@
+<%- include('partials/dash-header'); -%>
+
+
+    
+
+    </style></head>
+
+<body class="h-screen bg-[#0062a4] bg-center "  dir="rtl">
+
+    <div class="flex h-screen">
+
+        <!-- Sidebar -->
+        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-64 fixed inset-y-0 right-0 flex flex-col justify-between">
+
+            
+
+            <!-- Sidebar content -->
+            <div class="flex-grow overflow-y-auto text-center ">
+                <!-- Sidebar items -->
+                <a href="/dashboard" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
+                <a href="/malade" class="block p-4 hover:bg-black opacity-50  alexandria">قائمة المرضى</a>
+                <a href="/medicament" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة الأدوية</a>
+                <a href="/product" class="block p-4 hover:bg-black opacity-100 alexandria">عتاد المصلحة</a>
+                <a href="/program" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
+
+            </div>
+
+        </div>
+
+        <!-- Main content -->
+        <div class="mr-72 flex-1 overflow-y-auto pb-14 pl-8">
+
+            <div class="py-12 alexandria">
+                
+              <!--Inserting products form-->
+
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm" id="addDiv" <% if (addDiv) { %>style="display: none;"<% } %>>
+                  <form class="space-y-6" id="addproduct">
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          اسم العتاد
+                        </label>
+                        <input id="name" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          الكمية
+                        </label>
+                        <input id="qte" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                      </div>
+                      
+                    </div>
+
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                      <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                          تاريخ الإدخال
+                        </label>
+                        <input id="date" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                      </div>
+                      <div class="w-full md:w-1/2 px-3">
+                        <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                            الحالة
+                        </label>
+                        <input id="situation" name="situation" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+                      </div>
+                    </div>
+                    
+                    
+                    <button type="submit" 
+                    class="bg-[#005582] hover:bg-[#0774b5] text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">حفظ</button>
+                  </form>
+                </div>
+
+                 <!--Updating products form-->
+
+                <div class="sm:mx-auto sm:w-full sm:max-w-sm " id="editDiv" <% if (editDiv) { %>style="display: none;"<% } %>>
+                  <% getproducts.forEach(getproduct => { %>
+                    <form class="space-y-6" id="editproduct">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                                 اسم العتاد
+                              </label>
+                              <input value="<%= getproduct.id %> " id="eid" required class="hidden appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                              <input value="<%= getproduct.product %> " id="ename" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                            </div>
+                            <div class="w-full md:w-1/2 px-3">
+                              <label  class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                                  الكمية
+                              </label>
+                              <input value="<%= getproduct.qte %> " id="eqte" name="qte" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+                            </div>
+                          </div>
+  
+                      <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                          <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
+                            تاريخ الإدخال 
+                          </label>
+                          <input value="<%= getproduct.date %> " id="edate" required class="appearance-none block w-full bg-white text-black border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"  type="text">
+                        </div>
+                        <div class="w-full md:w-1/2 px-3">
+                          <label  class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
+                             الحالة 
+                          </label>
+                          <input value="<%= getproduct.situation %> " id="esituation" name="situation" required class="appearance-none block w-full bg-white text-black border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="text">
+                        </div>
+                      </div>
+                      
+                      <button type="submit" 
+                      class="bg-[#005582] hover:bg-[#0774b5] text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline">تعديل</button>
+                    </form>
+                  <% }); %>
+                </div>
+            </div>
+               
+                <!-- Table -->
+                <div id="table"  class="flex flex-col justify-center border-width: 1px alexandria  backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl px-6 lg:px-8" <% if (table) { %>style="display: none;"<% } %>>
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                    <table id="example" class="table-auto w-full ">
+                        <thead>
+                            <tr>
+                                <th class="px-4 text-white py-2 hidden">الاسم و اللقب</th>
+                                <th class="px-4 text-white py-2"> اسم العتاد </th>
+                                <th class="px-4 text-white py-2"> الكمية </th>
+                                <th class="px-4 text-white py-2">تاريخ الإدخال</th>
+                                <th class="px-4 text-white py-2">الحالة </th>
+                                <th class="px-4 text-white py-2">تعديل</th>
+                                <th class="px-4 text-white py-2">حذف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <% products.forEach(product => { %>
+                            <tr >
+                                <td class="border px-4 py-2 hidden"> <%= product.id %> </td>
+                                <td class="border px-4 py-2"> <%= product.product %> </td>
+                                <td class="border px-4 py-2"><%= product.qte %> </td>
+                                <td class="border px-4 py-2"><%= product.date %></td>
+                                <td class="border px-4 py-2"><%= product.situation %></td>
+                                <td><a href="/products/<%= product.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
+                                <td><a href="/products/<%= product.id %>/delete"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
+                            </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <!--Data Table -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+        <script type="text/javascript"> </script>
+        <script src="/javascripts/dashboard.js"></script> 
+
+
+        <script>
+
+           // add new user
+    document.getElementById('addproduct').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form input values
+        const name = document.getElementById('name').value;
+        const date = document.getElementById('date').value;
+        const qte = document.getElementById('qte').value;
+        const situation = document.getElementById('situation').value;
+
+    
+        // Create an object with form data
+        const formData = {
+            name: name,
+            date: date,
+            qte:qte ,
+            situation : situation
+
+        };
+    
+        // Send data to Express server
+        fetch('/addproduct', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(response => response(window.location.reload()))
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        
+            
+        
+    });
+    
+    // edit user 
+    document.getElementById('editproduct').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+    
+        // Get form input values
+        const id = document.getElementById('eid').value;
+        const name = document.getElementById('ename').value;
+        const date = document.getElementById('edate').value;
+        const qte = document.getElementById('eqte').value;
+        const situation = document.getElementById('esituation').value;
+
+    
+        // Create an object with form data
+        const formData = {
+            id: id ,
+            name: name,
+            date: date,
+            qte:qte ,
+            situation : situation
+        };
+        console.log(formData);
+        // Send data to Express server
+        fetch('/products/:id/edit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(response => response(window.location.reload()))
+        .then(data => console.log(data))
+        .catch(error => console.error('Error:', error));
+        
+            
+        
+    });
+
+        </script>
+       
+
+
+<%- include('partials/dash-footer'); -%>
