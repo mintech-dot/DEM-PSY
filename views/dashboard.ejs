@@ -6,7 +6,7 @@
     <div class="flex h-screen">
 
         <!-- Sidebar -->
-        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-1/5 flex flex-col">
+        <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 text-white w-64 fixed inset-y-0 right-0 flex flex-col justify-between">
 
             <!-- Sidebar header -->
             <div class="backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 flex justify-between items-center">
@@ -14,43 +14,45 @@
             </div>
 
             <!-- Sidebar content -->
-            <div class="flex-grow overflow-y-auto text-center">
+            <div class="flex-grow overflow-y-auto text-center ">
                 <!-- Sidebar items -->
                 <a href="/dashboard" class="block p-4 hover:bg-black opacity-100 alexandria">الواجهة الرئيسية</a>
-                <a href="/products" class="block p-4 hover:bg-black opacity-50  alexandria">قائمة المستخدمين</a>
-                <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن السلع</a>
-           </div>
+                <a href="/malade" class="block p-4 hover:bg-black opacity-50  alexandria">قائمة المرضى</a>
+                <a href="/medicament" class="block p-4 hover:bg-black opacity-100 alexandria">قائمة الأدوية</a>
+                <a href="/product" class="block p-4 hover:bg-black opacity-50 alexandria">عتاد المصلحة</a>
+                <a href="/program" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
+     </div>
 
         </div>
 
         <!-- Main content -->
-        <div class="flex-grow p-8">
+        <div class="mr-72 flex-1 overflow-y-auto pb-14 pl-8 pt-8">
             <h1 class="text-3xl alexandria text-white font-semibold mb-4">الواجهة الرئيسية</h1>
 
             <!-- Cards -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 <!-- Card 1 -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
-                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد القفف</h2>
-                    <p class="alexandria text-[#F5F5F5]">عدد القفف: 100</p>
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد المرضى</h2>
+                    <p class="alexandria text-[#F5F5F5]"> 100</p>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
-                    <h2 class="alexandria text-lg text-white font-semibold mb-2">المستفيدون</h2>
-                    <p class="alexandria text-[#F5F5F5]">عدد المستفيدين: 50</p>
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد الأدوية المتوفرة</h2>
+                    <p class="alexandria text-[#F5F5F5]"> 50</p>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
-                    <h2 class="alexandria text-lg text-white font-semibold mb-2">كمية السلع</h2>
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2"> عدد المرضى المغادرين</h2>
                     <p class="alexandria text-[#F5F5F5]">1000 </p>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl rounded-lg shadow-md p-6">
-                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد الممولين</h2>
-                    <p class="alexandria text-[#F5F5F5]">عدد المولين: 12</p>
+                    <h2 class="alexandria text-lg text-white font-semibold mb-2">عدد العمال</h2>
+                    <p class="alexandria text-[#F5F5F5]"> 12</p>
                 </div>
             </div>
 
@@ -58,26 +60,26 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Table -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl p-6 rounded-lg shadow">
-                    <h2 class="alexandria text-lg text-white font-semibold mb-4">اخر المستفيدين</h2>
+                    <h2 class="alexandria text-lg text-white font-semibold mb-4"> أسماء المرضى المغادرين </h2>
                     <table class="w-full">
                     <thead>
                         <tr>
-                        <th class="px-4 py-2 text-white alexandria">الاسم</th>
-                        <th class="px-4 py-2 text-white alexandria"> العنوان</th>
+                        <th class="px-4 py-2 text-white alexandria"> الاسم و اللقب</th>
+                        <th class="px-4 py-2 text-white alexandria"> رقم الهاتف</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                         <td class="border px-4 py-2 text-white alexandria">عمر أحمد </td>
-                        <td class="border px-4 py-2 text-white alexandria">سحقي أحمد</td>
+                        <td class="border px-4 py-2 text-white alexandria">067500000</td>
                         </tr>
                         <tr>
                         <td class="border px-4 py-2 text-white alexandria">أحمد علي</td>
-                        <td class="border px-4 py-2 text-white alexandria">حي الطمبور</td>
+                        <td class="border px-4 py-2 text-white alexandria">0777880232</td>
                         </tr>
                         <tr>
                             <td class="border px-4 py-2 text-white alexandria"> مصطفى سلطان</td>
-                            <td class="border px-4 py-2 text-white alexandria">حي الطمبور</td>
+                            <td class="border px-4 py-2 text-white alexandria">0555789812 </td>
                         </tr>
                     </tbody>
                     </table>
@@ -85,7 +87,7 @@
                 
                 <!-- Chart -->
                 <div class="   backdrop-filter backdrop-blur-sm bg-black bg-opacity-30 shadow-xl rounded-3xl p-6 rounded-lg shadow">
-                    <h2 class="text-lg font-semibold mb-4 text-white alexandria">الرسم البياني</h2>
+                    <h2 class="text-lg font-semibold mb-4 text-white alexandria">عدد المرضى </h2>
                     <canvas id="myChart"></canvas>
                 </div>
                 </div>
@@ -96,11 +98,11 @@
             <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
             <script>
             // Chart data
-            const labels = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو'];
+            const labels = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو' , 'أبريل', 'مايو', 'يونيو' , 'أبريل', 'مايو', 'يونيو'];
             const data = {
                 labels: labels,
                 datasets: [{
-                label: 'المبيعات',
+                label: 'المرضى',
                 data: [65, 59, 80, 81, 56, 55],
                 fill: false,
                 borderColor: 'white',

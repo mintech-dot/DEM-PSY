@@ -19,9 +19,9 @@
                 <!-- Sidebar items -->
                 <a href="/dashboard" class="block p-4 hover:bg-black opacity-50 alexandria">الواجهة الرئيسية</a>
                 <a href="/malade" class="block p-4 hover:bg-black opacity-100  alexandria">قائمة المرضى</a>
-                <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">مخزن الأدوية</a>
-                <a href="/products" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
-
+                <a href="/medicament" class="block p-4 hover:bg-black opacity-50 alexandria">قائمة الأدوية</a>
+                <a href="/product" class="block p-4 hover:bg-black opacity-50 alexandria">عتاد المصلحة</a>
+                <a href="/program" class="block p-4 hover:bg-black opacity-50 alexandria">برنامج عمل الأطباء</a>
             </div>
 
         </div>
@@ -174,6 +174,7 @@
                         <thead>
                             <tr>
                                 <th class="px-4 text-white py-2 hidden">الاسم و اللقب</th>
+                                <th class="px-4 text-white py-2 ">الاسم و اللقب</th>
                                 <th class="px-4 text-white py-2"> مرض مزمن </th>
                                 <th class="px-4 text-white py-2">الحالة العائلية</th>
                                 <th class="px-4 text-white py-2">مكان السكن</th>
@@ -181,7 +182,6 @@
                                 <th class="px-4 text-white py-2">  تاريخ الدخول</th>
                                 <th class="px-4 text-white py-2">الطبيب المعالج</th>
                                 <th class="px-4 text-white py-2">ملاحظات </th>
-                                <th class="px-4 text-white py-2">الصفة</th>
                                 <th class="px-4 text-white py-2">تعديل</th>
                                 <th class="px-4 text-white py-2">حذف</th>
                             </tr>
@@ -191,13 +191,13 @@
                             <tr >
                                 <td class="border px-4 py-2 hidden"> <%= malade.id %> </td>
                                 <td class="border px-4 py-2"> <%= malade.name %> </td>
-                                <td class="border px-4 py-2"><%= malade.place %> </td>
-                                <td class="border px-4 py-2"><%= malade.phone %></td>
-                                <td class="border px-4 py-2"><%= malade.type %></td>
-                                <td class="border px-4 py-2"> <%= malade.name %> </td>
-                                <td class="border px-4 py-2"><%= malade.place %> </td>
-                                <td class="border px-4 py-2"><%= malade.phone %></td>
-                                <td class="border px-4 py-2"><%= malade.type %></td>
+                                <td class="border px-4 py-2"><%= malade.maladie %> </td>
+                                <td class="border px-4 py-2"><%= malade.famille %></td>
+                                <td class="border px-4 py-2"><%= malade.place %></td>
+                                <td class="border px-4 py-2"> <%= malade.phone %> </td>
+                                <td class="border px-4 py-2"><%= malade.date %> </td>
+                                <td class="border px-4 py-2"><%= malade.doctor %></td>
+                                <td class="border px-4 py-2"><%= malade.notes %></td>
                                 <td><a href="/malades/<%= malade.id %>/"><img class="h-6 px-4 " src="/images/edit.png" alt="" srcset=""></a></td> 
                                 <td><a href="/malades/<%= malade.id %>/delete"><img class="h-6 px-4 " src="/images/delete.png" alt="" srcset=""></a></td> 
                             </tr>

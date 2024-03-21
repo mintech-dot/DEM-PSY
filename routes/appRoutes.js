@@ -1,6 +1,7 @@
 var express = require('express');
 const authController = require('../controllers/authController');
 const maladeController = require('../controllers/maladeController');
+const medicamentController = require('../controllers/medicamentController');
 const bodyParser = require('body-parser');
 const app = express();
 
@@ -22,4 +23,9 @@ app.get('/malades/:id/', maladeController.getMalade);
 app.get('/malades/:id/delete', maladeController.deleteMalade);
 
 
+app.get('/medicament' , medicamentController.getAllMedicament );
+app.post('/addmedicament', medicamentController.createMedicament);
+app.post('/medicaments/:id/edit', medicamentController.updateMedicament);
+app.get('/medicaments/:id/', medicamentController.getMedicament);
+app.get('/medicaments/:id/delete', medicamentController.deleteMedicament);
 module.exports = app;

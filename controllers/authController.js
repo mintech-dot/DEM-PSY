@@ -25,7 +25,7 @@ function auth(req, res, next) {
                 if (found = true) {
                     return res.redirect("/dashboard");
                 } else {
-                    res.send('<script>window.location.reload()</script>');                }
+                    res.redirect('/');                }
             } 
         });
     } 
